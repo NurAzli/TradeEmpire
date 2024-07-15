@@ -22,20 +22,21 @@ class Main extends PluginBase {
         // Create balances file
         @mkdir($this->getDataFolder());
         $this->economyManager = new EconomyManager($this);
+        $this->registerCommands();
     }
     
     private function registerCommands(): void {
         $setMoneyCommand = new SetMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("setmoney"), $setMoneyCommand);
+        $this->getServer()->getCommandMap()->register("setmoney", $setMoneyCommand);
         
         $balanceCommand = new BalanceCommand($this);
-        $this->getServer()->getCommandMap()->register("balance"), $balanceCommand);
+        $this->getServer()->getCommandMap()->register("balance", $balanceCommand);
 
         $addMoneyCommand = new AddMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("addmoney"), $addMoneyCommand);
+        $this->getServer()->getCommandMap()->register("addmoney", $addMoneyCommand);
 
         $removeMoneyCommand = new RemoveMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("removemoney"), $removeMoneyCommand);
+        $this->getServer()->getCommandMap()->register("removemoney", $removeMoneyCommand);
     }
     
 
