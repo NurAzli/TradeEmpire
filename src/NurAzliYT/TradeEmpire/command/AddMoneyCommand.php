@@ -8,6 +8,7 @@ use pocketmine\player\Player;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
 use NurAzliYT\TradeEmpire\TradeEmpire;
+use NurAzliYT\TradeEmpire\util\PermissionIds;
 use CortexPE\Commando\BaseCommand;
 
 final class AddMoneyCommand extends BaseCommand
@@ -18,7 +19,7 @@ final class AddMoneyCommand extends BaseCommand
     protected function prepare(): void 
     {
         parent::__construct("addmoney", "Add money to a player's balance", "/addmoney <player> <amount>", []);
-        $this->setPermission("tradeempire.command.addmoney");
+        $this->setPermission(PermissionIds::ADDMONEY_COMMAND);
         $this->plugin = $plugin;
     }
 
