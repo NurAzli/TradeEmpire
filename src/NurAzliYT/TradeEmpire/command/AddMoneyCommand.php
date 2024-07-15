@@ -32,7 +32,7 @@ final class AddMoneyCommand extends BaseCommand
         $this->plugin = $plugin;
     }
 
-    public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
+    public function onRun(CommandSender $sender, string $aliasUsed, array $args)
     {
         if (!$this->testPermission($sender)) {
             return false;
