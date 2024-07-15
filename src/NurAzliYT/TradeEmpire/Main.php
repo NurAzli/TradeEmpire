@@ -26,7 +26,7 @@ class Main extends PluginBase {
     
     private function registerCommands(): void {
         $setMoneyCommand = new SetMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("setmoney", $setMoneyCommand);
+        $this->getServer()->getCommandMap()->register("setmoney"), $setMoneyCommand);
         
         $balanceCommand = new BalanceCommand($this);
         $this->getServer()->getCommandMap()->register("balance"), $balanceCommand);
