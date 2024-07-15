@@ -8,7 +8,8 @@ use pocketmine\player\Player;
 use pocketmine\Server;
 use NurAzliYT\TradeEmpire\Main;
 
-class AddMoneyCommand extends Command {
+class AddMoneyCommand extends Command implements PluginOwned {
+    use PluginOwnedTrait;
 
     private $plugin;
 
@@ -34,5 +35,8 @@ class AddMoneyCommand extends Command {
         $this->plugin->getEconomyManager()->addBalance($playerName, $amount);
         $sender->sendMessage("Added $" . $amount . " to $playerName's balance");
         return true;
+    }
+    public function getOwningPlugin(): Main {
+        return $this->plugin;
     }
 }
