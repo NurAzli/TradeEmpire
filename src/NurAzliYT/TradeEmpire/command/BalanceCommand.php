@@ -5,9 +5,12 @@ namespace NurAzliYT\TradeEmpire\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\plugin\PluginOwned;
+use pocketmine\plugin\PluginOwnedTrait;
 use NurAzliYT\TradeEmpire\Main;
 
-class BalanceCommand extends Command {
+class BalanceCommand extends Command implements PluginOwned {
+    use PluginOwnedTrait;
 
     private $plugin;
 
@@ -30,5 +33,8 @@ class BalanceCommand extends Command {
             $sender->sendMessage("This command can only be used in-game.");
             return true;
         }
+    }
+    public function getOwningPlugin(): Main {
+        return $this->plugin;
     }
 }
