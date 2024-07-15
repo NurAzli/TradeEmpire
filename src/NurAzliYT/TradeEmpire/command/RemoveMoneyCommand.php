@@ -5,10 +5,13 @@ namespace NurAzliYT\TradeEmpire\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\plugin\PluginOwned;
+use pocketmine\plugin\PluginOwnedTrait;
 use pocketmine\Server;
 use NurAzliYT\TradeEmpire\Main;
 
-class RemoveMoneyCommand extends Command {
+class RemoveMoneyCommand extends Command implements PluginOwned {
+    use PluginOwnedTrait;
 
     private $plugin;
 
@@ -34,5 +37,9 @@ class RemoveMoneyCommand extends Command {
         $this->plugin->getEconomyManager()->removeBalance($playerName, $amount);
         $sender->sendMessage("Removed $" . $amount . " from $playerName's balance");
         return true;
+    }
+    
+    public function getOwningPlugin(): Main {
+        return $this->plugin;
     }
 }
