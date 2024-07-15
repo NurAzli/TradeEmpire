@@ -25,7 +25,7 @@ final class AddMoneyCommand extends BaseCommand
         parent::__construct($plugin, $name, $description, $aliases);
     }
 
-    protected function prepare(): void 
+    protected function prepare()
     {
         parent::__construct("addmoney", "Add money to a player's balance", "/addmoney <player> <amount>", []);
         $this->setPermission(PermissionIds::ADDMONEY_COMMAND);
