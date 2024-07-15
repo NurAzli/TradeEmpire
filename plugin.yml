@@ -1,0 +1,35 @@
+name: TradeEmpire
+main: NurAzliYT\TradeEmpire\Main
+version: 1.0.0
+api: 5.0.0
+author: NurAzliYT
+commands:
+  balance:
+    description: Check your balance
+    usage: /balance
+    permission: tradeempire.command.balance
+  setmoney:
+    description: Set a player's balance
+    usage: /setmoney <player> <amount>
+    permission: tradeempire.command.setmoney
+  addmoney:
+    description: Add money to a player's balance
+    usage: /addmoney <player> <amount>
+    permission: tradeempire.command.addmoney
+  removemoney:
+    description: Remove money from a player's balance
+    usage: /removemoney <player> <amount>
+    permission: tradeempire.command.removemoney
+permissions:
+  tradeempire.command.balance:
+    description: Allows the player to check their balance
+    default: true
+  tradeempire.command.setmoney:
+    description: Allows the player to set a player's balance
+    default: op
+  tradeempire.command.addmoney:
+    description: Allows the player to add money to a player's balance
+    default: op
+  tradeempire.command.removemoney:
+    description: Allows the player to remove money from a player's balance
+    default: op
