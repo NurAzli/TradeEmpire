@@ -7,21 +7,23 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
-use pocketmine\Server;
-use NurAzliYT\TradeEmpire\Main;
+use NurAzliYT\TradeEmpire\TradeEmpire;
 
-class AddMoneyCommand extends Command implements PluginOwned {
+class AddMoneyCommand extends Command implements PluginOwned
+{
     use PluginOwnedTrait;
 
-    private $plugin;
+    private TradeEmpire $plugin;
 
-    public function __construct(Main $plugin) {
+    public function __construct(TradeEmpire $plugin)
+    {
         parent::__construct("addmoney", "Add money to a player's balance", "/addmoney <player> <amount>", []);
         $this->setPermission("tradeempire.command.addmoney");
         $this->plugin = $plugin;
     }
 
-    public function execute(CommandSender $sender, string $label, array $args): bool {
+    public function execute(CommandSender $sender, string $label, array $args): bool
+    {
         if (!$this->testPermission($sender)) {
             return false;
         }
@@ -31,14 +33,23 @@ class AddMoneyCommand extends Command implements PluginOwned {
             return false;
         }
 
-        $playerName = $args[0];
-        $amount = intval($args[1]);
+        $playerName = array_shift($args);
+        $amount = array_shift($args);
 
-        $this->plugin->getEconomyManager()->addBalance($playerName, $amount);
-        $sender->sendMessage("Added $" . $amount . " to $playerName's balance");
-        return true;
+        $player = $this->plugin->getServer()->getPlayerByPrefix($playerName);
+
+        if ($player instanceof Player) {
+            $this->plugin->getEconomyManager()->addMoney($player, (float)$amount);
+            $sender->sendMessage("Added $amount to " . $player->getName() . "'s balance.");
+            return true;
+        } else {
+            $sender->sendMessage("Player not found.");
+            return false;
+        }
     }
-    public function getOwningPlugin(): Main {
+
+    public function getOwningPlugin(): TradeEmpire
+    {
         return $this->plugin;
     }
 }
