@@ -19,18 +19,18 @@ class EconomyManager {
         return $this->balances->get($name, 0);
     }
 
-    public function setBalance(string $playerName, int $amount): void {
+    public function setMoney(string $playerName, int $amount): void {
         $this->balances->set($playerName, $amount);
         $this->balances->save();
     }
 
-    public function addBalance(string $playerName, int $amount): void {
+    public function addMoney(string $playerName, int $amount): void {
         $currentBalance = $this->balances->get($playerName, 0);
         $this->balances->set($playerName, $currentBalance + $amount);
         $this->balances->save();
     }
 
-    public function removeBalance(string $playerName, int $amount): void {
+    public function removeMoney(string $playerName, int $amount): void {
         $currentBalance = $this->balances->get($playerName, 0);
         $this->balances->set($playerName, max(0, $currentBalance - $amount));
         $this->balances->save();
