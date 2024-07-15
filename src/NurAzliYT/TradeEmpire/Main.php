@@ -24,21 +24,20 @@ class Main extends PluginBase {
         $this->economyManager = new EconomyManager($this);
         $this->registerCommands();
     }
-    
+
     private function registerCommands(): void {
         $setMoneyCommand = new SetMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("setmoney", $setMoneyCommand);
+        $this->getServer()->getCommandMap()->register("tradeempire", $setMoneyCommand);
         
         $balanceCommand = new BalanceCommand($this);
-        $this->getServer()->getCommandMap()->register("balance", $balanceCommand);
+        $this->getServer()->getCommandMap()->register("tradeempire", $balanceCommand);
 
         $addMoneyCommand = new AddMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("addmoney", $addMoneyCommand);
+        $this->getServer()->getCommandMap()->register("tradeempire", $addMoneyCommand);
 
         $removeMoneyCommand = new RemoveMoneyCommand($this);
-        $this->getServer()->getCommandMap()->register("removemoney", $removeMoneyCommand);
+        $this->getServer()->getCommandMap()->register("tradeempire", $removeMoneyCommand);
     }
-    
 
     public function getEconomyManager(): EconomyManager {
         return $this->economyManager;
