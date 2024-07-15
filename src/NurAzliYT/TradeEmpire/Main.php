@@ -39,7 +39,7 @@ use NurAzliYT\TradeEmpire\command\RemoveMoneyCommand;
 use NurAzliYT\TradeEmpire\command\SetMoneyCommand;
 use NurAzliYT\TradeEmpire\util\EconomyManager;
 
-final class TradeEmpire extends PluginBase
+final class Main extends PluginBase
 {
     private EconomyManager $economyManager;
 
