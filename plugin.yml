@@ -6,19 +6,15 @@ author: NurAzliYT
 commands:
   balance:
     description: Check your balance
-    usage: /balance
     permission: tradeempire.command.balance
   setmoney:
     description: Set a player's balance
-    usage: /setmoney <player> <amount>
     permission: tradeempire.command.setmoney
   addmoney:
     description: Add money to a player's balance
-    usage: /addmoney <player> <amount>
     permission: tradeempire.command.addmoney
   removemoney:
     description: Remove money from a player's balance
-    usage: /removemoney <player> <amount>
     permission: tradeempire.command.removemoney
 permissions:
   tradeempire.command.balance:
