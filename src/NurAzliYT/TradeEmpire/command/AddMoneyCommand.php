@@ -16,6 +16,15 @@ final class AddMoneyCommand extends BaseCommand
 
     private TradeEmpire $plugin;
 
+    public function __construct(
+		Plugin $plugin,
+		string $name,
+		string $description = "",
+		array $aliases = []
+		) {
+        parent::__construct($plugin, $name, $description, $aliases);
+    }
+
     protected function prepare(): void 
     {
         parent::__construct("addmoney", "Add money to a player's balance", "/addmoney <player> <amount>", []);
