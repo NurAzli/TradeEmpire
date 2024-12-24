@@ -32,7 +32,7 @@ final class AddMoneyCommand extends Command implements PluginOwned
         $this->plugin = $plugin;
     }
 
-    public function onRun(CommandSender $sender, string $aliasUsed, array $args)
+    public function execute(CommandSender $sender, string $aliasUsed, array $args): bool
     {
         if (!$this->testPermission($sender)) {
             return false;
