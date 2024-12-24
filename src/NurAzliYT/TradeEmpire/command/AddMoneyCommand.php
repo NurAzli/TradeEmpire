@@ -9,10 +9,10 @@ use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
 use NurAzliYT\TradeEmpire\TradeEmpire;
 use NurAzliYT\TradeEmpire\util\PermissionIds;
-use CortexPE\Commando\BaseCommand;
 
-final class AddMoneyCommand extends BaseCommand
+final class AddMoneyCommand extends Command implements PluginOwned
 {
+    use PluginOwnedTrait;
 
     private TradeEmpire $plugin;
 
